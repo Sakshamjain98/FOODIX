@@ -1,11 +1,14 @@
 {
+  "homepage":"https://Sakshamjain98.github.io/FOODIX",
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is namaste react by saksham jain",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
   },
   "keywords": [
     "\"react\""
@@ -32,6 +35,7 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "babel-jest": "^29.7.0",
+    "gh-pages": "^6.1.1",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.33",
     "process": "^0.11.10",

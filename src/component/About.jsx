@@ -2,7 +2,6 @@ import { Component } from 'react';
 import UserClass from './UserClass';
 import UserContext from '../utils/UserContext';
 
-
 class About extends Component {
   constructor(props) {
     super(props);
@@ -10,11 +9,11 @@ class About extends Component {
 
   render() {
     return (
-      <div className="about-page flex items-center flex-col">
-        <div className='flex mt-3 font-bold tracking-wide'>
-          LoggedInUser : 
+      <div className="about-page flex flex-col items-center justify-center z-0">
+        <div className='mt-3 font-bold tracking-wide text-center'>
+          LoggedInUser: 
           <UserContext.Consumer>
-            {({ loggedInUser }) => <h1>{loggedInUser}</h1>}
+            {({ loggedInUser }) => <h1 className="mt-1">{loggedInUser}</h1>}
           </UserContext.Consumer>
         </div>
         <UserClass name={'First'} location={'Badvel class'} />
@@ -22,6 +21,5 @@ class About extends Component {
     );
   }
 }
-
 
 export default About;

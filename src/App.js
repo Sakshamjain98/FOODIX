@@ -10,8 +10,12 @@ import Footer from "./component/Footer"
 import  Restaurent from "./component/ReastaurentMenu.jsx"
 import UserContext from "./utils/UserContext.js"
 import { useState,useEffect } from 'react';
-
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore.js';
+import Cart from './component/Cart.jsx';
 const Grocery = lazy(() => import('./component/Grocery'));
+import Head from "./component/Headerrr.jsx";
+
 
 
 
@@ -25,13 +29,15 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
     <div className="app block mx-0 my-auto font-serif bg-[#f7f7f7]">
-      <Header />
+      <Head />
       <Outlet />
       <Footer/>
     </div>
   </UserContext.Provider>
+  </Provider>
   );
 };
 
@@ -63,6 +69,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/restaurent/:resId",
         element:< Restaurent/>
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       }
     ],
     errorElement:<Error/>
